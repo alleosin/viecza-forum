@@ -1,0 +1,43 @@
+{% extends "forum/base.html" %}
+
+{% block content %}
+    <h1>Завесці рахунак</h1>
+    <p>Калі ласка, зарэгіструйцеся, выкарыстоўваючы наступную форму:</p>
+    <form action="." class="post-form" method="post">
+        <p>
+        <label for="id_username">Імя карыстальніка:</label>
+        <input type="text" name="username" maxlength="150" required="" id="id_username">
+    </p>
+        <p><span class="helptext">Абавязковае поле. Да 150 знакаў. Толькі літары, лічбы ды @/./+/-/_.</span></p>
+
+
+  <p>
+    <label for="id_email">Адрас электроннай пошты:</label>
+    <input type="email" name="email" maxlength="254" id="id_email">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_password">Пароль:</label>
+    <input type="password" name="password" required="" id="id_password" aria-autocomplete="list">
+
+
+  </p>
+
+
+  <p>
+    <label for="id_password2">Паўтарыце пароль:</label>
+    <input type="password" name="password2" required="" id="id_password2">
+
+
+
+
+  </p>
+        {% csrf_token %}
+        <p><input type="submit" value="Стварыць рахунак"></p>
+    </form>
+{% endblock %}
+
+

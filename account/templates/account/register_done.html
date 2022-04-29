@@ -1,0 +1,6 @@
+{% extends "forum/base.html" %}
+
+{% block content %}
+    <h1>Вітаем {{ new_user.first_name }}!</h1>
+    <p>Ваш уліковы запіс быў паспяхова створаны. Цяпер вы можаце <a href="{% url "login" %}">ўвайсці ў сістэму</a>.</p>
+{% endblock %}

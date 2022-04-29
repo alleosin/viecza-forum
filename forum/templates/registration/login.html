@@ -1,0 +1,38 @@
+{% extends "forum/base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+  <p>Вашы імя карыстальніка і пароль не супадаюць. Калі ласка, паспрабуйце яшчэ раз.</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Ваш уліковы запіс не мае доступу да гэтай старонкі. Працягнуць,
+     калі ласка, увайдзіце з уліковым запісам, які мае доступ.</p>
+  {% else %}
+    <p>Калі ласка, увядзіце імя карыстальніка і пароль каб увайсці.Калі вы не маеце рахунка <a href="{% url "register" %}">зарэгіструйтесь тут</a></p>
+  {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+
+<tr>
+  <td>{{ form.username.label_tag }}</td>
+  <td class="field">{{ form.username }}</td>
+</tr>
+
+<tr>
+  <td>{{ form.password.label_tag }}</td>
+  <td class="field">{{ form.password }}</td>
+</tr>
+</table>
+
+<input class="field" type="submit" value="увайсці" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+
+{% endblock %}

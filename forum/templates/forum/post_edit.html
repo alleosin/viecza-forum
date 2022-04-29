@@ -1,0 +1,23 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+    <h1>Новы запіс</h1>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="post-form">
+            <p>
+                <label for="id_title">Назва:</label>
+                <input type="text" name="title" maxlength="200" required="" id="id_title">
+            </p>
+            <p>
+                <label for="id_text">Тэкст:</label>
+                <textarea name="text" cols="40" rows="10" required="" id="id_text" style="height: 220px; width: 842px;"></textarea>
+            </p>
+            <p>
+                <label for="id_image">Картынка:</label>
+                <input type="file" name="image" accept="image/*" id="id_image">
+            </p>
+        </div>
+        <button type="submit" class="save btn btn-default">Апублікаваць</button>
+    </form>
+{% endblock %}

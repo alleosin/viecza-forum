@@ -1,0 +1,45 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <h1>{{ post.title }}</h1>
+        <div class="author">
+                {{ post.author }}
+        </div>
+        {% if post.created_date %}
+            <div class="date">
+                <p>Апублікавана: {{ post.created_date|date:"d-m-Y у H:i" }}</p>
+            </div>
+        {% endif %}
+        {% if post.image %}
+            <img class="card-img-top" src="{{ MEDIA_URL }}{{ post.image }}" alt="" height="206">
+        {% endif %}
+        <div class="text">
+            {{ post.text|linebreaksbr }}
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+        <h3>Пакіньце каментарый:</h3>
+        <form action="/post/{{ post.pk }}/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.body }}
+            </div>
+            <button type="submit" class="btn btn-primary">Апублікаваць</button>
+        </form>
+    {% endif %}
+    <h3>Каментарыі:</h3>
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="author">
+                    {{ comment.author }}
+                </div>
+                <div class="date">
+                    <p>Апублікавана: {{ comment.created_date|date:"d-m-Y у H:i" }}</p>
+                </div>
+                <div class="text">
+                    {{ comment.body|linebreaksbr }}
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,106 @@
+body {
+    background-color: #030303;
+}
+.page-header {
+    z-index: 3;
+    background-color: #1a1a1b;
+    margin-top: 0;
+    height: 100px;
+    position: fixed;
+    padding-left: 40px;
+    padding-right: 100%;
+    }
+
+.authentication {
+    background-color: #030303;
+    font-size: 15pt;
+    color: #ffffff;
+    width: 60%;
+    position: relative;
+    top: -60px;
+    left: 1100%;
+    overflow: hidden;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    z-index: 2;
+    color: #ffffff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90em
+}
+
+.row {
+    margin-top: 120px;
+}
+
+img.card-img-top {
+    float: left;
+    margin-right: 10px;
+}
+
+.date {
+    color: #828282;
+}
+
+.author {
+    color: #828282;
+}
+
+.text {
+    font-size : 15pt;
+    text-align: justify;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea {
+    width: 100%;
+    background-color: #1a1a1b;
+}
+
+.post-form input, .post-form select {
+    width: 50%;
+    background-color: #1a1a1b;
+}
+
+.field, .field input {
+    background-color: #1a1a1b;
+    color #ffffff;
+}
+
+.form-group textarea {
+    height: 50px;
+    background-color: #1a1a1b;
+    color: #ffffff;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post, .comment {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    background-color: #1a1a1b;
+    min-height: 50px;
+    overflow: hidden;
+}
+
+.post h1, .post h1 a, .post h1 a:visited, .authentication a, .authentication a:visited{
+    color: #ffffff;
+}
