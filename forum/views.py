@@ -40,15 +40,15 @@ def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
             if request.FILES:
                 file = request.FILES['image']
                 dir = settings.MEDIA_ROOT+'/img/'
                 fs = FileSystemStorage(dir)
                 filename = fs.save(file.name, file)
                 file_url = fs.url(filename)
-            post = form.save(commit=False)
-            post.author = request.user
-            post.image = dir+file.name
+                post.image = dir + file.name
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
