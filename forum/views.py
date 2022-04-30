@@ -44,11 +44,11 @@ def post_new(request):
             post.author = request.user
             if request.FILES:
                 file = request.FILES['image']
-                dir = settings.MEDIA_ROOT+'/img/'
-                fs = FileSystemStorage(dir)
+                #dir = settings.MEDIA_ROOT+'/img/'
+                fs = FileSystemStorage()
                 filename = fs.save(file.name, file)
-                file_url = fs.url(filename)
-                post.image = dir + file.name
+                #file_url = fs.url(filename)
+                post.image = file.name
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
